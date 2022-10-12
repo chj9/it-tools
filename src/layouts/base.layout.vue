@@ -8,10 +8,14 @@ import { useStyleStore } from '@/stores/style.store';
 import { config } from '@/config';
 import MenuIconItem from '@/components/MenuIconItem.vue';
 import type { ITool } from '@/tools/tool';
+import useLocale from '@/i18n/hook/useLocale'; // 国际化hook
 import SearchBar from '../components/SearchBar.vue';
 import HeroGradient from '../assets/hero-gradient.svg?component';
 import MenuLayout from '../components/MenuLayout.vue';
 import NavbarButtons from '../components/NavbarButtons.vue';
+const {
+  i18n: { t }, // 解构实例用具t 访问语言变量
+} = useLocale();
 
 const themeVars = useThemeVars();
 const route = useRoute();
@@ -40,9 +44,9 @@ const menuOptions: MenuGroupOption[] = toolsByCategory.map((category) => ({
       <router-link to="/" class="hero-wrapper">
         <hero-gradient class="gradient" />
         <div class="text-wrapper">
-          <div class="title">IT - TOOLS</div>
+          <div class="title">TOOLS</div>
           <div class="divider" />
-          <div class="subtitle">Handy tools for developers</div>
+          <div class="subtitle">一个便捷的工具</div>
         </div>
       </router-link>
 
@@ -62,40 +66,8 @@ const menuOptions: MenuGroupOption[] = toolsByCategory.map((category) => ({
 
         <div class="footer">
           <div>
-            IT-Tools
-
-            <n-button
-              text
-              tag="a"
-              target="_blank"
-              rel="noopener"
-              type="primary"
-              depth="3"
-              :href="`https://github.com/CorentinTh/it-tools/tree/v${version}`"
-            >
-              v{{ version }}
-            </n-button>
-
-            <template v-if="commitSha && commitSha.length > 0">
-              -
-              <n-button
-                text
-                tag="a"
-                target="_blank"
-                rel="noopener"
-                type="primary"
-                depth="3"
-                :href="`https://github.com/CorentinTh/it-tools/tree/${commitSha}`"
-              >
-                {{ commitSha }}
-              </n-button>
-            </template>
-          </div>
-          <div>
             © {{ new Date().getFullYear() }}
-            <n-button text tag="a" target="_blank" rel="noopener" type="primary" href="https://github.com/CorentinTh">
-              Corentin Thomasset
-            </n-button>
+            Copyright
           </div>
         </div>
       </div>
@@ -128,28 +100,11 @@ const menuOptions: MenuGroupOption[] = toolsByCategory.map((category) => ({
                 <n-icon size="25" :component="Home2" />
               </n-button>
             </template>
-            Home
+            {{ t('home') }}
           </n-tooltip>
         </router-link>
 
         <search-bar />
-
-        <n-tooltip trigger="hover">
-          <template #trigger>
-            <n-button
-              type="primary"
-              tag="a"
-              href="https://github.com/sponsors/CorentinTh"
-              rel="noopener"
-              target="_blank"
-            >
-              <n-icon v-if="!styleStore.isSmallScreen" :component="Heart" style="margin-right: 5px" />
-              Sponsor
-            </n-button>
-          </template>
-          ❤ Support IT Tools development !
-        </n-tooltip>
-
         <navbar-buttons v-if="!styleStore.isSmallScreen" />
       </div>
       <slot />

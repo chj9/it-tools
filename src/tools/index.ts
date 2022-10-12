@@ -37,12 +37,12 @@ import { tool as uuidGenerator } from './uuid-generator';
 
 export const toolsByCategory: ToolCategory[] = [
   {
-    name: 'Crypto',
+    name: '加密',
     icon: LockOpen,
     components: [tokenGenerator, hashText, bcrypt, uuidGenerator, cypher, bip39, hmacGenerator],
   },
   {
-    name: 'Converter',
+    name: '转换',
     icon: LockOpen,
     components: [
       dateTimeConverter,
@@ -68,27 +68,27 @@ export const toolsByCategory: ToolCategory[] = [
     ],
   },
   {
-    name: 'Images',
+    name: '图片',
     icon: LockOpen,
     components: [qrCodeGenerator, svgPlaceholderGenerator],
   },
   {
-    name: 'Development',
+    name: '开发工具 ',
     icon: LockOpen,
     components: [gitMemo, randomPortGenerator, crontabGenerator, jsonViewer, sqlPrettify],
   },
   {
-    name: 'Math',
+    name: '数学',
     icon: LockOpen,
     components: [mathEvaluator, etaCalculator],
   },
   {
-    name: 'Measurement',
+    name: '计量',
     icon: LockOpen,
     components: [chronometer],
   },
   {
-    name: 'Text',
+    name: '文本',
     icon: LockOpen,
     components: [loremIpsumGenerator, textStatistics],
   },

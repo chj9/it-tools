@@ -10,7 +10,7 @@ const route = useRoute();
 const theme = useThemeVars();
 
 const head = computed<HeadObject>(() => ({
-  title: `${route.meta.name} - IT Tools`,
+  title: `${route.meta.name} - Tools`,
   meta: [
     {
       name: 'description',

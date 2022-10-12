@@ -22,7 +22,7 @@ const props = defineProps<{ value: string }>();
 const emit = defineEmits(['update:value']);
 
 const value = useVModel(props, 'value', emit);
-const tooltipText = ref('Copy to clipboard');
+const tooltipText = ref('复制到剪贴板');
 
 const { copy } = useClipboard({ source: value });
 
@@ -31,7 +31,7 @@ function onCopyClicked() {
   tooltipText.value = 'Copied !';
 
   setTimeout(() => {
-    tooltipText.value = 'Copy to clipboard';
+    tooltipText.value = '复制到剪贴板';
   }, 2000);
 }
 </script>

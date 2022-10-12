@@ -8,42 +8,15 @@ useHead({ title: 'About - IT Tools' });
   <div class="about-page">
     <n-h1>About</n-h1>
     <n-p>
-      This wonderful website, made with ❤ by
-      <n-button text tag="a" href="https://github.com/CorentinTh" target="_blank" rel="noopener" type="primary">
-        Corentin Thomasset </n-button
-      >, aggregates useful tools for developer and people working in IT. If you find it useful, please fell free to
-      share it to people you think may find it useful too and don't forget to pin it in your shortcut bar !
-    </n-p>
-    <n-p>
       IT Tools is open-source (under the MIT license) and free, and will always be, but it cost me money to host and
-      renew the domain name, if you want to support my work, and encourage me to add more tools, please consider
-      supporting by
-      <n-button
-        type="primary"
-        tag="a"
-        text
-        href="https://github.com/sponsors/CorentinTh"
-        rel="noopener"
-        target="_blank"
-      >
-        sponsoring me </n-button
-      >.
+      renew the domain name, if you want to support my work, and encourage me to add more tools
     </n-p>
 
     <n-h2>Technologies</n-h2>
     <n-p>
       IT Tools is made in Vue JS (vue 3) with the the naive-ui component library and is hosted and continuously deployed
       by Vercel. Third party open-source libraries are used in some tools, you may find the complete list in the
-      <n-button
-        type="primary"
-        tag="a"
-        text
-        href="https://github.com/CorentinTh/it-tools/blob/master/package.json"
-        rel="noopener"
-        target="_blank"
-      >
-        package.json
-      </n-button>
+
       file of the repository.
     </n-p>
 

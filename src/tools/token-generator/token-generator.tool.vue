@@ -4,28 +4,28 @@
       <n-form label-placement="left" label-width="140">
         <n-space justify="center" item-style="padding: 0" :size="0">
           <div>
-            <n-form-item label="Uppercase (ABC...)">
+            <n-form-item label="大写 (ABC...)">
               <n-switch v-model:value="withUppercase" />
             </n-form-item>
 
-            <n-form-item label="Lowercase (abc...)">
+            <n-form-item label="小写 (abc...)">
               <n-switch v-model:value="withLowercase" />
             </n-form-item>
           </div>
 
           <div>
-            <n-form-item label="Numbers (012...)">
+            <n-form-item label="数字 (012...)">
               <n-switch v-model:value="withNumbers" />
             </n-form-item>
 
-            <n-form-item label="Symbols (;-!...)">
+            <n-form-item label="符号 (;-!...)">
               <n-switch v-model:value="withSymbols" />
             </n-form-item>
           </div>
         </n-space>
       </n-form>
 
-      <n-form-item :label="`Length (${length})`" label-placement="left">
+      <n-form-item :label="`长度 (${length})`" label-placement="left">
         <n-slider v-model:value="length" :step="1" :min="1" :max="512" />
       </n-form-item>
 
@@ -44,8 +44,8 @@
       <br />
       <br />
       <n-space justify="center">
-        <n-button secondary autofocus @click="copy"> Copy </n-button>
-        <n-button secondary @click="refreshToken"> Refresh </n-button>
+        <n-button secondary autofocus @click="copy"> 复制 </n-button>
+        <n-button secondary @click="refreshToken"> 刷新 </n-button>
       </n-space>
     </n-card>
   </div>

@@ -59,7 +59,7 @@ whenever(keys.ctrl_k, () => {
           ref="focusTarget"
           round
           clearable
-          placeholder="Search a tool... [Ctrl + K]"
+          placeholder="工具搜索... [Ctrl + K]"
           :value="slotValue"
           @input="handleInput"
           @focus="handleFocus"
