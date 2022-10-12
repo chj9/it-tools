@@ -1,21 +1,6 @@
 <template>
   <n-card>
     <n-form-item label="Your raw json">
-      <n-input
-        ref="inputElement"
-        v-model:value="rawJson"
-        placeholder="Paste your raw json here..."
-        type="textarea"
-        rows="20"
-        autocomplete="off"
-        autocorrect="off"
-        autocapitalize="off"
-        spellcheck="false"
-      />
-    </n-form-item>
-  </n-card>
-  <n-card>
-    <n-form-item label="Your raw json">
       <b-ace-editor
         v-model="jsonStr"
         lang="json"
@@ -32,7 +17,7 @@
     <div class="pl-15">
       <div class="pl-15">
         <n-space>
-          <n-button size="small" type="primary" @click="handleFormat">格式化</n-button>
+          <n-button size="small" type="primary" @click="handleFormat">{{ t('home') }}</n-button>
           <n-button size="small" type="primary" @click="modal = true">弹窗编辑</n-button>
           <n-button size="small" type="primary" @click="handleZip">压缩</n-button>
 
@@ -63,7 +48,6 @@ export default {
   data() {
     return {
       jsonStr: JSON.stringify(jsonData, null, 2),
-      rawJson: '',
       modal: false,
       readonly: false,
       theme: 'chrome',
@@ -72,10 +56,10 @@ export default {
   },
   methods: {
     handleZip() {
-      this.jsonStr = JSON.stringify(JSON.parse(this.rawJson), null, 0);
+      this.jsonStr = JSON.stringify(JSON.parse(this.jsonStr), null, 0);
     },
     handleFormat() {
-      this.jsonStr = JSON.stringify(JSON.parse(this.rawJson), null, 2);
+      this.jsonStr = JSON.stringify(JSON.parse(this.jsonStr), null, 2);
     },
   },
 };
