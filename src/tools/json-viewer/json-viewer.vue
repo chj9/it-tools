@@ -1,21 +1,19 @@
 <template>
-  <n-card size="huge">
-    <n-space>
-      <n-button size="small" type="primary" @click="handleFormat">{{ $t('format') }}</n-button>
-      <n-button size="small" type="primary" @click="handleZip">{{ $t('compression') }}</n-button>
-    </n-space>
-    <n-form-item label-width="120">
-      <b-ace-editor
-        v-model="jsonStr"
-        lang="json"
-        width="100%"
-        height="500"
-        theme="xcode"
-        :readonly="readonly"
-        :font-size="fontSize"
-      ></b-ace-editor>
-    </n-form-item>
+  <n-card>
+    <b-ace-editor
+      v-model="jsonStr"
+      lang="json"
+      width="100%"
+      height="500"
+      theme="xcode"
+      :readonly="readonly"
+      :font-size="fontSize"
+    ></b-ace-editor>
   </n-card>
+  <n-space>
+    <n-button size="small" type="primary" @click="handleFormat">{{ $t('format') }}</n-button>
+    <n-button size="small" type="primary" @click="handleZip">{{ $t('compression') }}</n-button>
+  </n-space>
 </template>
 
 <script>
