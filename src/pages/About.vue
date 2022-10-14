@@ -15,9 +15,8 @@ useHead({ title: 'About - IT Tools' });
     <n-h2>Technologies</n-h2>
     <n-p>
       IT Tools is made in Vue JS (vue 3) with the the naive-ui component library and is hosted and continuously deployed
-      by Vercel. Third party open-source libraries are used in some tools, you may find the complete list in the
-
-      file of the repository.
+      by Vercel. Third party open-source libraries are used in some tools, you may find the complete list in the file of
+      the repository.
     </n-p>
 
     <n-h2>Found a bug? A tool is missing?</n-h2>

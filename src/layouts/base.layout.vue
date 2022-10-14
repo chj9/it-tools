@@ -8,14 +8,10 @@ import { useStyleStore } from '@/stores/style.store';
 import { config } from '@/config';
 import MenuIconItem from '@/components/MenuIconItem.vue';
 import type { ITool } from '@/tools/tool';
-import useLocale from '@/i18n/hook/useLocale'; // 国际化hook
 import SearchBar from '../components/SearchBar.vue';
 import HeroGradient from '../assets/hero-gradient.svg?component';
 import MenuLayout from '../components/MenuLayout.vue';
 import NavbarButtons from '../components/NavbarButtons.vue';
-const {
-  i18n: { t }, // 解构实例用具t 访问语言变量
-} = useLocale();
 
 const themeVars = useThemeVars();
 const route = useRoute();
@@ -100,7 +96,7 @@ const menuOptions: MenuGroupOption[] = toolsByCategory.map((category) => ({
                 <n-icon size="25" :component="Home2" />
               </n-button>
             </template>
-            {{ t('home') }}
+            {{ $t('home') }}
           </n-tooltip>
         </router-link>
 

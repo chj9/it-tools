@@ -9,6 +9,8 @@ const defaultLocale = localStorage.getItem('locale') || 'en-US';
 
 const i18n = createI18n({
   locale: defaultLocale, // 默认语言
+  globalInjection: true,
+  legacy: false,
   fallbackLocale: 'en-US', // 不存在默认则为英文
   allowComposition: true, // 允许组合式api
   messages: {

@@ -1,6 +1,10 @@
 <template>
-  <n-card>
-    <n-form-item label="Your raw json">
+  <n-card size="huge">
+    <n-space>
+      <n-button size="small" type="primary" @click="handleFormat">{{ $t('format') }}</n-button>
+      <n-button size="small" type="primary" @click="handleZip">{{ $t('compression') }}</n-button>
+    </n-space>
+    <n-form-item label-width="120">
       <b-ace-editor
         v-model="jsonStr"
         lang="json"
@@ -12,22 +16,6 @@
       ></b-ace-editor>
     </n-form-item>
   </n-card>
-
-  <n-col span="12">
-    <div class="pl-15">
-      <div class="pl-15">
-        <n-space>
-          <n-button size="small" type="primary" @click="handleFormat">{{ t('home') }}</n-button>
-          <n-button size="small" type="primary" @click="modal = true">弹窗编辑</n-button>
-          <n-button size="small" type="primary" @click="handleZip">压缩</n-button>
-
-          <n-modal v-model="modal" title="弹窗编辑" transition-name="fade-in-linear">
-            <b-ace-editor v-model="jsonStr" height="400"></b-ace-editor>
-          </n-modal>
-        </n-space>
-      </div>
-    </div>
-  </n-col>
 </template>
 
 <script>
@@ -48,7 +36,6 @@ export default {
   data() {
     return {
       jsonStr: JSON.stringify(jsonData, null, 2),
-      modal: false,
       readonly: false,
       theme: 'chrome',
       fontSize: 14,
