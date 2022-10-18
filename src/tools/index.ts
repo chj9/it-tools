@@ -1,6 +1,7 @@
 import { LockOpen } from '@vicons/tabler';
 import type { ToolCategory } from './tool';
 
+import { tool as jsonYml } from './json-yml';
 import { tool as otpCodeGeneratorAndValidator } from './otp-code-generator-and-validator';
 import { tool as base64FileConverter } from './base64-file-converter';
 import { tool as base64StringConverter } from './base64-string-converter';
@@ -75,7 +76,7 @@ export const toolsByCategory: ToolCategory[] = [
   {
     name: '开发工具 ',
     icon: LockOpen,
-    components: [gitMemo, randomPortGenerator, crontabGenerator, jsonViewer, sqlPrettify],
+    components: [gitMemo, randomPortGenerator, crontabGenerator, jsonViewer, jsonYml, sqlPrettify],
   },
   {
     name: '数学',

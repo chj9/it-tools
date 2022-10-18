@@ -8,17 +8,16 @@ import BaseLayout from './base.layout.vue';
 
 const route = useRoute();
 const theme = useThemeVars();
-
 const head = computed<HeadObject>(() => ({
-  title: `${route.meta.name} - Tools`,
+  title: `${route.meta.name} +- Tools`,
   meta: [
     {
       name: 'description',
-      content: route.meta.description,
+      content: route.meta.description + '',
     },
     {
       name: 'keywords',
-      content: route.meta.keywords,
+      content: route.meta.keywords + '',
     },
   ],
 }));
@@ -65,7 +64,7 @@ useHead(head);
   align-items: flex-start;
   flex-wrap: wrap;
   gap: 16px;
-
+  // TODO
   ::v-deep(& > *) {
     flex: 0 1 600px;
   }

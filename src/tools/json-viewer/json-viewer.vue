@@ -1,56 +1,66 @@
 <template>
   <n-card>
+    <n-space>
+      <n-button size="small" type="primary" @click="handleFormat">{{ $t('format') }}</n-button>
+      <n-button size="small" type="primary" @click="handleZip">{{ $t('compression') }}</n-button>
+    </n-space>
+    <n-form-item :feedback="rawJsonValidation.message" :validation-status="rawJsonValidation.status">
+      <n-input
+        ref="inputElement"
+        v-model:value="rawJson"
+        placeholder="Paste your raw json here..."
+        type="textarea"
+        rows="20"
+        autocomplete="off"
+        autocorrect="off"
+        autocapitalize="off"
+        spellcheck="false"
+      />
+    </n-form-item>
+  </n-card>
+  <n-card>
     <b-ace-editor
-      v-model="jsonStr"
+      v-model="configData.jsonStr"
       lang="json"
       width="100%"
-      height="500"
+      height="600"
       theme="xcode"
-      :readonly="readonly"
-      :font-size="fontSize"
+      :readonly="configData.readonly"
+      :font-size="configData.fontSize"
     ></b-ace-editor>
   </n-card>
-  <n-space>
-    <n-button size="small" type="primary" @click="handleFormat">{{ $t('format') }}</n-button>
-    <n-button size="small" type="primary" @click="handleZip">{{ $t('compression') }}</n-button>
-  </n-space>
 </template>
+<script setup lang="ts">
+import { useValidation } from '@/composable/validation';
+import JSON5 from 'json5';
+import { reactive, ref } from 'vue';
+const rawJson = ref('{"hello": "world"}');
 
-<script>
-const jsonData = {
-  title: '测试json数据',
-  child: [
+const rawJsonValidation = useValidation({
+  source: rawJson,
+  rules: [
     {
-      title: '子项名称1',
-      desc: '子项描述1',
-    },
-    {
-      title: '子项名称2',
-      desc: '子项描述2',
+      validator: (v) => v === '' || JSON5.parse(v),
+      message: 'Provided JSON is not valid.',
     },
   ],
+});
+
+const configData = reactive({
+  jsonStr: rawJson,
+  readonly: false,
+  theme: 'chrome',
+  fontSize: 14,
+});
+const handleZip = () => {
+  configData.jsonStr = JSON.stringify(JSON.parse(configData.jsonStr), null, 0);
 };
-export default {
-  data() {
-    return {
-      jsonStr: JSON.stringify(jsonData, null, 2),
-      readonly: false,
-      theme: 'chrome',
-      fontSize: 14,
-    };
-  },
-  methods: {
-    handleZip() {
-      this.jsonStr = JSON.stringify(JSON.parse(this.jsonStr), null, 0);
-    },
-    handleFormat() {
-      this.jsonStr = JSON.stringify(JSON.parse(this.jsonStr), null, 2);
-    },
-  },
+const handleFormat = () => {
+  configData.jsonStr = JSON.stringify(JSON.parse(configData.jsonStr), null, 2);
 };
 </script>
 
-<style lang="less" scoped>
+<style lang="less">
 .result-card {
   position: relative;
 
